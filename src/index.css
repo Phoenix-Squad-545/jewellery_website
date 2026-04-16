@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&family=Lexend+Deca:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+/* Loader Animations */
+
+/* Loader Animations */
+
+@keyframes load {
+  0%   { width: 0%; opacity: 1; }
+  80%  { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+
+@keyframes dotPop {
+  0%,100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+/* Utility classes */
+
+.animate-load {
+  animation: load 3s ease-in-out infinite;
+}
+
+.animate-dotPop {
+  animation: dotPop 1.5s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Lexend Deca', sans-serif;
+  background-color: #f8f8f8;
+  color: #333333;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* Custom Colors fallback */
+
+.bg-gold {
+  background-color: #b8975a;
+}
+
+.bg-gold-light {
+  background-color: #d4b47a;
+}
+
+.text-gold {
+  color: #b8975a;
+}
+
+.border-gold {
+  border-color: #b8975a;
+}
+
+.border-gold-light {
+  border-color: #d4b47a;
+}
+
+/* Thin Luxury Scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;   /* vertical scrollbar */
+  height: 6px;  /* horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f6f2; /* offwhite */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+
+
+/* Firefox Support */
+
+* {
+  scrollbar-width: thin;
+}
