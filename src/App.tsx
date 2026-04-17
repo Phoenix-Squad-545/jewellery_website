@@ -2,7 +2,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useLocation
+  useLocation,
+  Navigate
 } from "react-router-dom";
 
 import { useEffect, useState } from "react";
@@ -57,6 +58,8 @@ function AppContent() {
           <Route path="/gallery/:category" element={<CategoryDetail />} />
           <Route path="/gallery/:category/:product" element={<ProductList />} />
 
+{/* Catch-all for wrong routes */}
+  <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </MainLayout>
     </>

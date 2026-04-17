@@ -288,7 +288,7 @@ const formattedCategory =
    const isSingleCategory =
   product === "Silver" ||
   product === "Gift Articles" ||  product === "Antique Jewellery"||  product === "Temple Jewellery" ||
-  product === "birthstone";
+  product === "birthstone" ||   product === "Birthstone";
 
   return (
     <>
@@ -315,7 +315,7 @@ const formattedCategory =
 <Breadcrumb
   current={product || ""}
   parents={
-    isSingleCategory
+    isSingleCategory 
       ? [
           {
             name: "Gallery",
@@ -327,7 +327,7 @@ const formattedCategory =
             name: "Gallery",
             path: "/gallery"
           },
-         {
+          {
             name: formattedCategory,
             path: `/gallery/${category}`
           }
