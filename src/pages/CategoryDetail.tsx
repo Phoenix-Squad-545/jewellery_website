@@ -163,7 +163,6 @@ export default function CategoryDetail() {
             {products?.map((product: string, index: number) => {
               const imagePath = getProductImagePath(category, product);
               const isLoaded = loadedImages.has(product);
-              console.log(product, "product>>>");
 
               return (
                 <div

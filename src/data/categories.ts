@@ -1,11 +1,10 @@
-
 // data/categories.ts
-
 export interface Category {
   key: string;
   label: string;
   image: string;
-  products?: string[]; // Optional, as some categories might not have products
+  type?: "multi" | "single";
+  products?: string[];
 }
 export const categories: Category[] = [
   { key: "Temple Jewellery", label: "Temple Jewellery", image: "/images/categories/gallery_item_9.jpg", products: ["temple-jewellery"]},

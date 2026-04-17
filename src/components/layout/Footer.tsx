@@ -8,7 +8,7 @@ export default function Footer() {
 
         {/* Top */}
 
-        <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+        <div className="grid md:grid-cols-5 gap-12 pb-12 border-b border-white/10">
 
           {/* Brand */}
 
@@ -21,8 +21,6 @@ export default function Footer() {
             </h3>
 
             <span className="block font-cormorant italic text-gold mt-1">
-
-              
 
             </span>
 
@@ -40,7 +38,7 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-cinzel text-xs tracking-[0.3em] text-gold mb-6 mt-2">
+            <h4 className="font-cormorant text-sm tracking-[0.3em] text-gold mb-6 mt-2">
 
               Navigate
 
@@ -61,7 +59,7 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-cinzel text-xs tracking-[0.3em] text-gold mb-6 mt-2">
+            <h4 className="font-cormorant text-sm tracking-[0.3em] text-gold mb-6 mt-2">
 
               Collections
 
@@ -70,9 +68,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/50">
 
               <li>Temple Jewellery</li>
+              <li>Gold Collections</li>
               <li>Gift Articles</li>
               <li>Silverware</li>
-              <li>Heirloom</li>
+              <li>Antique Jewellery</li>
+              <li>Birthstone</li>
 
             </ul>
 
@@ -82,7 +82,7 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-cinzel text-xs tracking-[0.3em] text-gold mb-6 mt-2">
+            <h4 className="font-cormorant text-sm tracking-[0.3em] text-gold mb-6 mt-2">
 
               Connect
 
@@ -96,6 +96,25 @@ export default function Footer() {
               <li>Krishnajewellery@yahoo.com</li>
 
             </ul>
+
+          </div>
+
+          {/* Working Hours */}
+
+          <div>
+
+            <h4 className="font-cormorant text-sm tracking-[0.3em] text-gold mb-6 mt-2">
+              Working Hours
+            </h4>
+
+            <p className="text-sm text-white/60 leading-relaxed">
+              Monday to Saturday <br />
+              10:00 AM to 8:30 PM
+            </p>
+
+            <span className="text-xs text-white/40 block mt-2">
+              Closed on Sundays
+            </span>
 
           </div>
 

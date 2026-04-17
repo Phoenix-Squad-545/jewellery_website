@@ -41,10 +41,16 @@ export default defineConfig({
         },
 
       },
+      zoomInOut: {
+    "0%":   { transform: "scale(1)" },
+    "50%":  { transform: "scale(1.12)" },
+    "100%": { transform: "scale(1)" },
+  },
 
       animation: {
         load: "load 3s ease-in-out infinite",
         dotPop: "dotPop 1.5s ease-in-out infinite",
+        zoomInOut: "zoomInOut 8s ease-in-out infinite",
       },
 
     },

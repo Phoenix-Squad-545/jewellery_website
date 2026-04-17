@@ -203,6 +203,24 @@ const getProductItems = (product: string) => {
     ]
   };
 
+   const normalizedProduct = product?.toLowerCase();
+  
+  if (normalizedProduct === "birthstone") {
+    return items["Birthstone"] || [];
+  }
+  
+  if (normalizedProduct === "gift articles") {
+    return items["Gift Articles"] || [];
+  }
+  
+  if (normalizedProduct === "antique jewellery") {
+    return items["Antique Jewellery"] || [];
+  }
+  
+  if (normalizedProduct === "temple jewellery") {
+    return items["Temple Jewellery"] || [];
+  }
+  
   return items[product] || [];
 };
 
@@ -215,7 +233,7 @@ export default function ProductList() {
 
   const parentImage =
     state?.parentImage ||
-    "/images/default-banner.jpg";
+    "/images/bg_1.png";
 
   const [selectedIndex, setSelectedIndex] =
   useState<number | null>(null);
@@ -270,22 +288,22 @@ const formattedCategory =
    const isSingleCategory =
   product === "Silver" ||
   product === "Gift Articles" ||  product === "Antique Jewellery"||  product === "Temple Jewellery" ||
-  product === "Birthstone";
+  product === "birthstone";
 
   return (
     <>
       {/* Hero */}
-      <div className="relative h-[250px] overflow-hidden">
+      <div className="relative h-[450px] overflow-hidden">
 
         <img
           src={parentImage}
           alt={product}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover animate-zoomInOut"
         />
 
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <h1 className="text-white text-4xl font-cinzel capitalize">
-            {product}
+            {/* {product} */}
           </h1>
         </div>
 

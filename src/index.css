@@ -4,23 +4,63 @@
 
 /* Loader Animations */
 
-/* Loader Animations */
+@theme {
+  /* Colors */
+  /* --color-gold:       #f6efe5; */
+  /* --color-gold-light: #d4b47a; */
+  /* --color-charcoal:   #2c2c2c;
+  --color-offwhite:   #f8f6f2;
+  --color-warmgrey:   #e8e4de; */
 
-@keyframes load {
-  0%   { width: 0%; opacity: 1; }
-  80%  { width: 100%; opacity: 1; }
-  100% { width: 100%; opacity: 0; }
-}
+  /* Fonts */
+  --font-cinzel:     "Cinzel", serif;
+  --font-cormorant:  "Cormorant Garamond", serif;
+  --font-lato:       "Lato", sans-serif;
 
-@keyframes dotPop {
-  0%,100% {
-    opacity: 0.25;
-    transform: scale(1);
+  /* Keyframes */
+  --animate-gradientMove:     gradientMove 12s ease-in-out infinite;
+  --animate-gradientMoveSlow: gradientMoveSlow 18s ease-in-out infinite;
+  --animate-float:            float 6s ease-in-out infinite;
+  --animate-fadeSlideUp:      fadeSlideUp 0.8s ease-out;
+  --animate-load:             load 3s ease-in-out infinite;
+  --animate-dotPop:           dotPop 1.5s ease-in-out infinite;
+  --animate-zoomInOut:        zoomInOut 8s ease-in-out infinite;
+
+  @keyframes gradientMove {
+    0%, 100% { transform: translateX(0); }
+    50%       { transform: translateX(40px); }
   }
 
-  50% {
-    opacity: 1;
-    transform: scale(1.6);
+  @keyframes gradientMoveSlow {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-40px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(-50%); }
+    50%       { transform: translateY(-48%); }
+  }
+
+  @keyframes fadeSlideUp {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes load {
+    0%   { width: 0%;   opacity: 1; }
+    80%  { width: 100%; opacity: 1; }
+    100% { width: 100%; opacity: 0; }
+  }
+
+  @keyframes dotPop {
+    0%, 100% { opacity: 0.25; transform: scale(1);   }
+    50%       { opacity: 1;    transform: scale(1.6); }
+  }
+
+  @keyframes zoomInOut {
+    0%   { transform: scale(1);    }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1);    }
   }
 }
 
