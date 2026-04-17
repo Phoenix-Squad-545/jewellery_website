@@ -37,7 +37,7 @@ function AppContent() {
       // Enable scroll
       document.body.style.overflow = "auto";
 
-    }, 2000); // shorter feels better
+    }, 2500); // shorter feels better
 
     return () => clearTimeout(timer);
 
