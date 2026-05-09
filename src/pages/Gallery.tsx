@@ -4,29 +4,29 @@ import Footer from "../components/layout/Footer";
 import Breadcrumb from "../components/common/BreadCrumbs";
 
 const galleryCategories = [
-  {
-    label: "Gold",
-    image: "/images/gallery/gallery_item_2.jpg",
-    slug: "gold",
-    type: "multi", // important
-    products: [
-      "Rings",
-      "Studs",
-      "Bangles",
-      "Chains",
-      "Dollar",
-      "Haram",
-      "Bracelet"
-    ]
-  },
+  // {
+  //   label: "Gold",
+  //   image: "/images/gallery/gallery_item_2.jpg",
+  //   slug: "gold",
+  //   type: "multi", // important
+  //   products: [
+  //     "Rings",
+  //     "Studs",
+  //     "Bangles",
+  //     "Chains",
+  //     "Dollar",
+  //     "Haram",
+  //     "Bracelet"
+  //   ]
+  // },
 
-  {
-    label: "Silver",
-    image: "/images/silver_1.jpg",
-    slug: "silver",
-    type: "single", // important
-    products: ["Silver"]
-  },
+  // {
+  //   label: "Silver",
+  //   image: "/images/silver_1.jpg",
+  //   slug: "silver",
+  //   type: "single", // important
+  //   products: ["Silver"]
+  // },
   {
     label: "Temple Jewellery",
     image: "/images/product/temple/temple-jewellery-1.jpg",
@@ -35,28 +35,28 @@ const galleryCategories = [
     products: ["Temple Jewellery"]
   },
 
-  {
-    label: "Gift Articles",
-    image: "/images/product/gift/gift10.jpg",
-    slug: "gift-articles",
-    type: "single",
-    products: ["Gift Articles"]
-  },
-  {
-    label: "Antique Jewellery",
-    image: "/images/product/antique/antique-1.webp",
-    slug: "antique-jewellery",
-    type: "single",
-    products: ["Antique Jewellery"]
-  },
+  // {
+  //   label: "Gift Articles",
+  //   image: "/images/product/gift/gift10.jpg",
+  //   slug: "gift-articles",
+  //   type: "single",
+  //   products: ["Gift Articles"]
+  // },
+  // {
+  //   label: "Antique Jewellery",
+  //   image: "/images/product/antique/antique-1.webp",
+  //   slug: "antique-jewellery",
+  //   type: "single",
+  //   products: ["Antique Jewellery"]
+  // },
 
-  {
-    label: "Birthstone",
-    image: "/images/product/stone/stone1.jpg",
-    slug: "birthstone",
-    type: "single",
-    products: ["Birthstone"]
-  },
+  // {
+  //   label: "Birthstone",
+  //   image: "/images/product/stone/stone1.jpg",
+  //   slug: "birthstone",
+  //   type: "single",
+  //   products: ["Birthstone"]
+  // },
 ];
 
 export default function Gallery() {
