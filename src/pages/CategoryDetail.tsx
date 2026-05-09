@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Breadcrumb from "../components/common/BreadCrumbs";
 
@@ -88,10 +88,9 @@ export default function CategoryDetail() {
     state ||
     CATEGORY_CONFIG[categoryKey as string];
 
-  if (!categoryData) {
-    navigate("/gallery");
-    return null;
-  }
+if (!categoryData) {
+  return <Navigate to="/gallery" replace />;
+}
 
   const {
     products,
@@ -101,18 +100,18 @@ export default function CategoryDetail() {
   const [loadedImages, setLoadedImages] =
     useState<Set<string>>(new Set());
 
-  if (!category) {
+  // if (!category) {
 
-    // fallback from URL
-    const urlCategory =
-      location.pathname.split("/")[2];
+  //   // fallback from URL
+  //   const urlCategory =
+  //     location.pathname.split("/")[2];
 
-    if (!urlCategory) {
-      navigate("/gallery");
-      return null;
-    }
+  //   if (!urlCategory) {
+  //     navigate("/gallery");
+  //     return null;
+  //   }
 
-  }
+  // }
 
   const handleImageLoad = (productName: string) => {
     setLoadedImages(prev => new Set(prev).add(productName));

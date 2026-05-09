@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { Navigate, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Breadcrumb from "../components/common/BreadCrumbs";
 
@@ -283,6 +283,10 @@ const formattedCategory =
   product === "Silver" ||
   product === "Gift Articles" ||  product === "Antique Jewellery"||  product === "Temple Jewellery" ||
   product === "birthstone" ||   product === "Birthstone";
+
+  if (!productItems.length) {
+  return <Navigate to="/" replace />;
+}
 
   return (
     <>
