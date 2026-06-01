@@ -34,6 +34,20 @@ const galleryCategories = [
     type: "single", // important
     products: ["Temple Jewellery"]
   },
+  {
+    label: "Jadau Jewellery",
+    image: "/images/jadau/Jadau01.jpeg",
+    slug: "jadau-jewellery",
+    type: "single", // important
+    products: ["Jadau Jewellery"]
+  },
+  {
+    label: "Panchalogam Jewellery",
+    image: "/images/panchalogam/Panchalogam01.jpeg",
+    slug: "panchalogam-jewellery",
+    type: "single", // important
+    products: ["Panchalogam Jewellery"]
+  },
 
   // {
   //   label: "Gift Articles",

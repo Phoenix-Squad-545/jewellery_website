@@ -180,7 +180,83 @@ const getProductItems = (product: string) => {
       "/images/Traditional/Traditional21.webp",
       "/images/Traditional/Traditional22.webp",
     ],
-
+      "Jadau Jewellery": [
+      "/images/jadau/Jadau01.jpeg",
+      "/images/jadau/Jadau02.jpeg",
+      "/images/jadau/Jadau03.jpeg",
+      "/images/jadau/Jadau04.jpeg",
+      "/images/jadau/Jadau05.jpeg", 
+      "/images/jadau/Jadau06.jpeg",
+      "/images/jadau/Jadau07.jpeg",
+      "/images/jadau/Jadau08.jpeg", 
+      "/images/jadau/Jadau09.jpeg",
+      "/images/jadau/Jadau10.jpeg" 
+    ],
+      "Panchalogam Jewellery": [
+      "/images/panchalogam/Panchalogam01.jpeg",
+      "/images/panchalogam/Panchalogam02.jpeg", 
+      "/images/panchalogam/Panchalogam03.jpeg",
+      "/images/panchalogam/Panchalogam04.jpeg",
+      "/images/panchalogam/Panchalogam05.jpeg", 
+      "/images/panchalogam/Panchalogam06.jpeg",
+      "/images/panchalogam/Panchalogam07.jpeg",
+      "/images/panchalogam/Panchalogam08.jpeg",
+      "/images/panchalogam/Panchalogam09.jpeg",
+      "/images/panchalogam/Panchalogam10.jpeg",
+      "/images/panchalogam/Panchalogam11.jpeg",
+      "/images/panchalogam/Panchalogam12.jpeg",
+      "/images/panchalogam/Panchalogam13.jpeg",
+      "/images/panchalogam/Panchalogam14.jpeg",
+      "/images/panchalogam/Panchalogam15.jpeg",
+      "/images/panchalogam/Panchalogam16.jpeg",
+      "/images/panchalogam/Panchalogam17.jpeg",
+      "/images/panchalogam/Panchalogam18.jpeg",
+      "/images/panchalogam/Panchalogam19.jpeg",
+      "/images/panchalogam/Panchalogam20.jpeg",
+      "/images/panchalogam/Panchalogam21.jpeg",
+      "/images/panchalogam/Panchalogam22.jpeg",
+      "/images/panchalogam/Panchalogam23.jpeg",
+      "/images/panchalogam/Panchalogam24.jpeg",
+      "/images/panchalogam/Panchalogam25.jpeg",
+      "/images/panchalogam/Panchalogam26.jpeg",
+      "/images/panchalogam/Panchalogam27.jpeg",
+      "/images/panchalogam/Panchalogam28.jpeg",
+      "/images/panchalogam/Panchalogam29.jpeg",
+      "/images/panchalogam/Panchalogam30.jpeg",
+      "/images/panchalogam/Panchalogam31.jpeg",
+      "/images/panchalogam/Panchalogam32.jpeg",
+      "/images/panchalogam/Panchalogam33.jpeg",
+      "/images/panchalogam/Panchalogam34.jpeg",
+      "/images/panchalogam/Panchalogam35.jpeg",
+      "/images/panchalogam/Panchalogam36.jpeg",
+      "/images/panchalogam/Panchalogam37.jpeg",
+      "/images/panchalogam/Panchalogam38.jpeg",
+      "/images/panchalogam/Panchalogam39.jpeg",
+      "/images/panchalogam/Panchalogam40.jpeg",
+      "/images/panchalogam/Panchalogam41.jpeg",
+      "/images/panchalogam/Panchalogam42.jpeg",
+      "/images/panchalogam/Panchalogam43.jpeg",
+      "/images/panchalogam/Panchalogam44.jpeg",
+      "/images/panchalogam/Panchalogam45.jpeg",
+      "/images/panchalogam/Panchalogam46.jpeg",
+      "/images/panchalogam/Panchalogam47.jpeg",
+      "/images/panchalogam/Panchalogam48.jpeg",
+      "/images/panchalogam/Panchalogam49.jpeg",
+      "/images/panchalogam/Panchalogam50.jpeg",
+      "/images/panchalogam/Panchalogam51.jpeg",
+      "/images/panchalogam/Panchalogam52.jpeg",
+      "/images/panchalogam/Panchalogam53.jpeg",
+      "/images/panchalogam/Panchalogam54.jpeg",
+      "/images/panchalogam/Panchalogam55.jpeg",
+      "/images/panchalogam/Panchalogam56.jpeg",
+      "/images/panchalogam/Panchalogam57.jpeg",
+      "/images/panchalogam/Panchalogam58.jpeg",
+      "/images/panchalogam/Panchalogam59.jpeg",
+      "/images/panchalogam/Panchalogam60.jpeg",
+      "/images/panchalogam/Panchalogam61.jpeg",
+      "/images/panchalogam/Panchalogam62.jpeg",
+      "/images/panchalogam/Panchalogam63.jpeg",
+      ],
     Birthstone: [
       "/images/product/stone/stone1.jpg",
       "/images/product/stone/stone2.jpg",
@@ -213,6 +289,12 @@ const getProductItems = (product: string) => {
   
   if (normalizedProduct === "temple jewellery") {
     return items["Temple Jewellery"] || [];
+  }
+  if (normalizedProduct === "jadau jewellery") {
+    return items["Jadau Jewellery"] || [];
+  }
+  if (normalizedProduct === "panchalogam jewellery") {
+    return items["Panchalogam Jewellery"] || [];
   }
   
   return items[product] || [];
@@ -282,6 +364,7 @@ const formattedCategory =
    const isSingleCategory =
   product === "Silver" ||
   product === "Gift Articles" ||  product === "Antique Jewellery"||  product === "Temple Jewellery" ||
+   product === "Jadau Jewellery" ||  product === "Panchalogam Jewellery" ||
   product === "birthstone" ||   product === "Birthstone";
 
   if (!productItems.length) {
@@ -374,7 +457,7 @@ const formattedCategory =
     <div className="relative max-w-4xl w-full px-6 group ">
 
       {/* Close Button */}
-      <div className="absolute top-6 right-8 group/close ">
+      <div className="absolute top-6 right-15 group/close ">
 
         <button
           onClick={() => setSelectedIndex(null)}
