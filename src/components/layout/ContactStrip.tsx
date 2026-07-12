@@ -16,7 +16,7 @@ export default function ContactStrip() {
 
           <h3 className="font-cinzel text-xl tracking-widest">
 
-            ✦ Krishna Jewellery
+            ✦ Radha Gold Jewellery
 
           </h3>
 
@@ -113,7 +113,7 @@ export default function ContactStrip() {
 
             <p className="text-sm text-gray-600 mt-3">
 
-              Krishnajewellery@yahoo.com
+              radhajwellery@yahoo.com
 
             </p>
 

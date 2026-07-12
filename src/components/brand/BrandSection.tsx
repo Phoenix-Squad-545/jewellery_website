@@ -162,86 +162,73 @@ const handlePrev = () => {
             {/* Short Content (Home Page) */}
 
             <p className="text-sm leading-relaxed text-gray-600 mb-6">
-
-              Founded by Mr. A. Rathinam in 1979,
-              Krishna Jewellery has been principally
-              into silver retailing and is the first
-              in the state to do so.
-              For wedding occasion or light weight wear for career women or ranges for men’s wear anything and everything under one roof.
-              Krishna Jewellers is the first BIS hallmark certified Jewellery showroom in this part of Chennai. To facilitate the accessibility of buying Jewellery to the common man,
-               professional or self employed, Shanthi has a variety of Saving Scheme which offers the option of buying Jewellery after paying in easy installment scheme.
-
-            </p>
+  <strong>Radha Gold Jewellery</strong> was established in <strong>1967</strong> by
+  <strong> Mr. B. S. Balavenkataraman</strong>, the pioneer who introduced
+  <strong> Original Temple Jewellery</strong>. For more than five decades, we
+  have been preserving the rich heritage of traditional South Indian jewellery,
+  offering handcrafted designs that reflect timeless elegance and exceptional
+  craftsmanship. Our commitment to quality and authenticity has earned the trust
+  of generations of customers.
+</p>
 
             {/* Extra Content (Only About Page) */}
 
-            {showFullContent && (
+           {showFullContent && (
+  <>
+    <p className="text-sm leading-relaxed text-gray-600 mb-6">
+      We specialize in manufacturing
+      <strong> Original Temple Jewellery</strong> while also offering a wide
+      collection of <strong>Panchalogam Kemp Jewellery</strong>,
+      <strong> Jadau Kundan Jewellery</strong>,
+      <strong> Imitation Dance Jewellery</strong>,
+      <strong> Artificial Jewellery</strong>, and
+      <strong> Silver Jewellery</strong>. Every creation is crafted with
+      precision to celebrate India's rich artistic heritage.
+    </p>
 
-              <>
-                <p className="text-sm leading-relaxed text-gray-600 mb-6">
+    <p className="text-sm leading-relaxed text-gray-600 mb-6">
+      We also undertake customized orders for
+      <strong> Pure Gold Jewellery</strong>,
+      <strong> Silver Articles</strong>, and
+      <strong> Certified Diamond Jewellery</strong>, ensuring every piece is
+      designed to match our customers' unique preferences and special occasions.
+    </p>
 
-                  The beauty and originality of the designs
-                  in Sukra is complemented by the brilliance
-                  of the Silver and the vivid colours of
-                  the gemstones, bringing breathtaking
-                  collections of Silver jewellery.
-
-                </p>
-
-                <p className="text-sm leading-relaxed text-gray-600 mb-6">
-
-                  Krishna holds the distinction of being
-                  the first Silver retailer in the world
-                  to set two World Records — Largest
-                  Silver Sculpture and Largest Silver Clock.
-
-                </p>
-
-                <p className="text-sm leading-relaxed text-gray-600 mb-6">
-
-                  First Silver showroom in India to get
-                  ISO 9001 accreditation, BIS Silver
-                  Hallmark licence and Certificate of
-                  Excellence from the Indo American
-                  Business Promotion Council, USA.
-
-                </p>
-
-              </>
-            )}
+    <p className="text-sm leading-relaxed text-gray-600 mb-6">
+      As one of the first
+      <strong> BIS Hallmark Certified Jewellery Showrooms</strong> in this part
+      of Chennai, we are committed to maintaining the highest standards of
+      purity, quality, and customer satisfaction. Our legacy continues to blend
+      tradition with innovation, making Radha Gold Jewellery a trusted name
+      since 1967.
+    </p>
+  </>
+)}
 
             {/* Stats */}
 
-            <div className="grid grid-cols-3 text-center border-y py-8 mb-8">
+          <div className="grid grid-cols-3 text-center border-y py-8 mb-8">
+  <div>
+    <span className="font-cormorant text-3xl text-gold block">58+</span>
+    <span className="text-xs tracking-widest text-gray-500 uppercase">
+      Years of Heritage
+    </span>
+  </div>
 
-              <div>
-                <span className="font-cormorant text-3xl text-gold block">
-                  45+
-                </span>
-                <span className="text-xs tracking-widest text-gray-500 uppercase">
-                  Years
-                </span>
-              </div>
+  <div>
+    <span className="font-cormorant text-3xl text-gold block">1967</span>
+    <span className="text-xs tracking-widest text-gray-500 uppercase">
+      Founded
+    </span>
+  </div>
 
-              <div>
-                <span className="font-cormorant text-3xl text-gold block">
-                  2
-                </span>
-                <span className="text-xs tracking-widest text-gray-500 uppercase">
-                  World Records
-                </span>
-              </div>
-
-              <div>
-                <span className="font-cormorant text-3xl text-gold block">
-                  1979
-                </span>
-                <span className="text-xs tracking-widest text-gray-500 uppercase">
-                  Founded
-                </span>
-              </div>
-
-            </div>
+  <div>
+    <span className="font-cormorant text-3xl text-gold block">100%</span>
+    <span className="text-xs tracking-widest text-gray-500 uppercase">
+      BIS Certified
+    </span>
+  </div>
+</div>
 
             {/* Show button ONLY on Home */}
 

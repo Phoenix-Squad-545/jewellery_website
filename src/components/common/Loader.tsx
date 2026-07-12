@@ -1,4 +1,6 @@
 // Loader.tsx
+import Logo from "../../assets/logo.jpg";
+
 export default function Loader() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-10 bg-[#1a1612] overflow-hidden">
@@ -25,7 +27,7 @@ export default function Loader() {
         </div>
 
         {/* Spinning gem rings */}
-        <div className="relative h-[100px] w-[100px]">
+        {/* <div className="relative h-[100px] w-[100px]">
           <div className="absolute inset-0 animate-spin rounded-full border-[1.5px] border-transparent border-t-gold border-r-gold-light [animation-duration:2.4s]" />
           <div className="absolute inset-[16px] animate-[spin_1.8s_linear_infinite_reverse] rounded-full border border-transparent border-b-gold border-l-gold-light" />
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse">
@@ -36,15 +38,33 @@ export default function Loader() {
               <polygon points="11,1 5,9 11,5" fill="#b8975a" opacity="0.7"/>
             </svg>
           </div>
-        </div>
+        </div> */}
+
+        {/* Logo with spinning rings */}
+<div className="relative h-[120px] w-[120px]">
+  {/* Outer Ring */}
+  <div className="absolute inset-0 animate-spin rounded-full border-[1.5px] border-transparent border-t-gold border-r-gold-light [animation-duration:2.4s]" />
+
+  {/* Inner Ring */}
+  <div className="absolute inset-[12px] animate-[spin_1.8s_linear_infinite_reverse] rounded-full border border-transparent border-b-gold border-l-gold-light" />
+
+  {/* Logo */}
+  <div className="absolute inset-[22px] flex items-center justify-center rounded-full bg-white shadow-xl p-2">
+    <img
+      src={Logo}
+      alt="Radha Gold Jewellery"
+      className="w-full h-full object-contain rounded-full"
+    />
+  </div>
+</div>
 
         {/* Brand */}
         <div className="flex flex-col items-center gap-3">
           <span className="font-cinzel text-2xl md:text-4xl tracking-[0.25em] text-gold uppercase animate-pulse">
-            Krishna Jewellery
+            Radha Gold Jewellery
           </span>
           <span className="font-cormorant italic text-base md:text-lg tracking-wider text-white/50">
-            Since 1979 · Chennai
+            Since 1967 · Chennai
           </span>
         </div>
 

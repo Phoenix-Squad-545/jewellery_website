@@ -84,7 +84,7 @@ export default function About() {
             </h3>
 
             <p className="text-charcoal">
-              +91 4424640699
+              +91 9444000535
             </p>
 
           </div>
@@ -126,7 +126,7 @@ export default function About() {
             </h3>
 
             <p className="text-charcoal">
-              sukrajewellery@yahoo.com
+              radhajewellery@yahoo.com
             </p>
 
           </div>

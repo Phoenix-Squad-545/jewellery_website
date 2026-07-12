@@ -89,10 +89,10 @@ export default function Drawer({
 
           <div className="mt-auto text-sm text-white/70 pb-150">
 
-            <p>+91 4424640699</p>
+            <p>044 42102844</p>
 
             <p>
-              krishnajewellery@yahoo.com
+              radhajwellery@yahoo.com
             </p>
 
           </div>

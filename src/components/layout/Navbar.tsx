@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { navigationLinks } from "../../data/navigation";
 import Drawer from "./Drawer";
+import logo from "../../assets/logo.jpg"; // Update the path and extension as needed
 
 export default function Navbar() {
 
@@ -41,21 +42,31 @@ export default function Navbar() {
 
         {/* LEFT — Logo + Contact */}
 
-        <div className="flex flex-col leading-tight">
+      {/* LEFT — Logo + Contact */}
 
-          <Link
-            to="/"
-            className="font-cinzel text-lg tracking-widest"
-          >
-            ✦ Krishna Jewellery
-          </Link>
+<div className="flex items-start gap-3">
+  <Link to="/" className="shrink-0">
+    <img
+      src={logo}
+      alt="Radha Gold Jewellery Logo"
+      className="w-10 h-10 object-contain"
+    />
+  </Link>
 
-          <div className="text-[10px] text-white/70 mt-1 hidden md:block">
-            <p>+91 4424640699</p>
-            <p>krishnajewellery@yahoo.com</p>
-          </div>
+  <div className="flex flex-col leading-tight">
+    <Link
+      to="/"
+      className="font-cinzel text-lg tracking-widest"
+    >
+      Radha Gold Jewellery
+    </Link>
 
-        </div>
+    <div className="text-[10px] text-white/70 mt-1 hidden md:block">
+      <p>044 42102844</p>
+      <p>radhajewellery@yahoo.com</p>
+    </div>
+  </div>
+</div>
 
         {/* CENTER — Brand Name */}
 
@@ -69,7 +80,7 @@ export default function Navbar() {
               uppercase
             "
           >
-            Krishna Jewellery
+            Radha Gold Jewellery
           </h1>
 
         </div> */}

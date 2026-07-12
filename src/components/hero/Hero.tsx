@@ -13,7 +13,7 @@ export default function Hero() {
     {
       image: "/images/gallery/gallery_item_2.jpg",
       title: "Silver Jewellery",
-      subtitle: "Since 1979",
+      subtitle: "Since 1967",
       tagline: "TRADITION MEETS STYLE",
     },
     {
@@ -84,7 +84,7 @@ export default function Hero() {
           className="text-xs tracking-[0.4em] text-white  text-gold px-2 uppercase mb-5 animate-fadeSlideUp delay-200"
           // style={{ animationDelay: "0.1s" }}
         >
-          Since 1979 · Chennai, India
+          Since 1967 · Chennai, India
         </p>
 
         <h1

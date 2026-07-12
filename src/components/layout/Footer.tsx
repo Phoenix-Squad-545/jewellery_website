@@ -1,3 +1,6 @@
+import { Facebook, Instagram } from "lucide-react";
+import Logo from "../../assets/logo.jpg"; // Update the path and extension as needed
+
 export default function Footer() {
 
   return (
@@ -12,27 +15,25 @@ export default function Footer() {
 
           {/* Brand */}
 
-          <div>
+          {/* Brand */}
+<div>
+  <div className="flex items-center gap-3">
+    <img
+      src={Logo}
+      alt="Radha Gold Jewellery Logo"
+      className="w-10 h-10 object-contain rounded-full"
+    />
 
-            <h3 className="font-cinzel text-lg tracking-widest">
+    <h3 className="font-cinzel text-lg tracking-widest">
+      Radha Gold Jewellery
+    </h3>
+  </div>
 
-              ✦ Krishna Jewellery
-
-            </h3>
-
-            <span className="block font-cormorant italic text-gold mt-1">
-
-            </span>
-
-            <p className="text-white/50 text-sm mt-6 leading-relaxed">
-
-              Founded in 1979, Krishna Jewellery
-              specializes in premium silver
-              craftsmanship and heritage designs.
-
-            </p>
-
-          </div>
+  <p className="text-white/50 text-sm mt-6 leading-relaxed">
+    Founded in 1967, Radha Gold Jewellery specializes in premium silver
+    craftsmanship and heritage designs.
+  </p>
+</div>
 
           {/* Navigate */}
 
@@ -68,11 +69,13 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/50">
 
               <li>Temple Jewellery</li>
-              <li>Gold Collections</li>
+              <li>Jadau Jewellery Collections</li>
+              <li>Panchalogam Jewellery Collections</li>
+              {/* <li>Gold Collections</li>
               <li>Gift Articles</li>
               <li>Silverware</li>
               <li>Antique Jewellery</li>
-              <li>Birthstone</li>
+              <li>Birthstone</li> */}
 
             </ul>
 
@@ -93,7 +96,7 @@ export default function Footer() {
               <li>Facebook</li>
               <li>Instagram</li>
               <li>+91 44 2462 0000</li>
-              <li>Krishnajewellery@yahoo.com</li>
+              <li>radhajwellery@yahoo.com</li>
 
             </ul>
 
@@ -126,27 +129,32 @@ export default function Footer() {
 
           <p className="text-xs text-white/30">
 
-            © {new Date().getFullYear()} Krishna Jewellery.
+            © {new Date().getFullYear()} Radha Gold Jewellery.
             All rights reserved.
 
           </p>
 
-          <div className="flex gap-4">
+         <div className="flex gap-4">
+          <a
+            href="https://www.facebook.com/share/1EdZnwVkxe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook size={16} />
+          </a>
 
-            <div className="w-8 h-8 border border-white/20 flex items-center justify-center hover:border-gold">
-
-              f
-
-            </div>
-
-            <div className="w-8 h-8 border border-white/20 flex items-center justify-center hover:border-gold">
-
-              in
-
-            </div>
-
-          </div>
-
+          <a
+            href="https://www.instagram.com/radhagoldjewellers2874?utm_source=qr&igsh=MWl3NWg4ZDVteXd3eg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram size={16} />
+          </a>
+        </div>
         </div>
 
       </div>

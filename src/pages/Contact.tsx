@@ -38,7 +38,7 @@ export default function Contact() {
             </h3>
 
             <p className="font-semibold">
-              +91 4424640699
+              +91 9444000535
             </p>
 
           </div>
@@ -68,7 +68,7 @@ export default function Contact() {
             </h3>
 
             <p>
-              Krishnajewellery@yahoo.com
+              radhajwellery@yahoo.com
             </p>
 
           </div>
