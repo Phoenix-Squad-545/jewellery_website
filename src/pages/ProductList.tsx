@@ -1,13 +1,20 @@
 import { Navigate, useLocation, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Breadcrumb from "../components/common/BreadCrumbs";
 
 interface ProductState {
   category?: string;
   product?: string;
   parentImage?: string;
+  leftMedia?: string;
+  rightMedia?: string;
+  sideMedia?: string;
 }
 
+// ---------------------------------------------------------------------------
+// Add video files anywhere in these arrays exactly like an image path, e.g.
+// "/images/product/ring/ring_3.mp4" — they'll auto-detect and play on hover.
+// ---------------------------------------------------------------------------
 const getProductItems = (product: string) => {
   const items: { [key: string]: string[] } = {
     Rings: [
@@ -101,7 +108,7 @@ const getProductItems = (product: string) => {
       "/images/product/bracelet/bracelet-10.jpg",
       "/images/product/bracelet/bracelet-11.jpg",
     ],
-     Silver: [
+    Silver: [
       "/images/product/silver/silverware1.jpg",
       "/images/product/silver/silverware2.jpg",
       "/images/product/silver/silverware3.jpg",
@@ -127,7 +134,6 @@ const getProductItems = (product: string) => {
       "/images/product/silver/silverware103.jpg",
       "/images/product/silver/silverware104.jpg",
     ],
-
     "Gift Articles": [
       "/images/product/gift/gift1.jpg",
       "/images/product/gift/gift2.jpg",
@@ -156,107 +162,213 @@ const getProductItems = (product: string) => {
       "/images/product/antique/antique-7.webp",
       "/images/product/antique/antique-8.jpg",
     ],
+    // "Temple Jewellery": [
+    //   "/images/Traditional/Traditional01.jpg",
+    //   "/images/Traditional/Traditional02.webp",
+    //   "/images/Traditional/Traditional03.webp",
+    //   "/images/Traditional/Traditional04.jpg",
+    //   "/images/Traditional/Traditional05.jpg",
+    //   "/images/Traditional/Traditional06.jpg",
+    //   "/images/Traditional/Traditional07.jpg",
+    //   "/images/Traditional/Traditional08.jpg",
+    //   "/images/Traditional/Traditional09.jpg",
+    //   "/images/Traditional/Traditional10.jpg",
+    //   "/images/Traditional/Traditional11.jpg",
+    //   "/images/Traditional/Traditional12.jpg",
+    //   "/images/Traditional/Traditional13.jpg",
+    //   "/images/Traditional/Traditional14.webp",
+    //   "/images/Traditional/Traditional15.webp",
+    //   "/images/Traditional/Traditional16.jpg",
+    //   "/images/Traditional/Traditional17.webp",
+    //   "/images/Traditional/Traditional18.webp",
+    //   "/images/Traditional/Traditional19.webp",
+    //   "/images/Traditional/Traditional20.webp",
+    //   "/images/Traditional/Traditional21.webp",
+    //   "/images/Traditional/Traditional22.webp",
+    // ],
     "Temple Jewellery": [
-      "/images/Traditional/Traditional01.jpg",
-      "/images/Traditional/Traditional02.webp",
-      "/images/Traditional/Traditional03.webp",
-      "/images/Traditional/Traditional04.jpg",
-      "/images/Traditional/Traditional05.jpg",
-      "/images/Traditional/Traditional06.jpg",
-      "/images/Traditional/Traditional07.jpg",
-      "/images/Traditional/Traditional08.jpg",
-      "/images/Traditional/Traditional09.jpg",
-      "/images/Traditional/Traditional10.jpg",
-      "/images/Traditional/Traditional11.jpg",
-      "/images/Traditional/Traditional12.jpg",
-      "/images/Traditional/Traditional13.jpg",
-      "/images/Traditional/Traditional14.webp",
-      "/images/Traditional/Traditional15.webp",
-      "/images/Traditional/Traditional16.jpg",
-      "/images/Traditional/Traditional17.webp",
-      "/images/Traditional/Traditional18.webp",
-      "/images/Traditional/Traditional19.webp",
-      "/images/Traditional/Traditional20.webp",
-      "/images/Traditional/Traditional21.webp",
-      "/images/Traditional/Traditional22.webp",
+      "/images/Latest_Temple/temple-jewellery-1.jpg",
+      "/images/Latest_Temple/temple-jewellery-2.jpg",
+      "/images/Latest_Temple/temple-jewellery-3.jpg",
+      "/images/Latest_Temple/temple-jewellery-4.jpg",
+      "/images/Latest_Temple/temple-jewellery-5.jpg",
+      "/images/Latest_Temple/temple-jewellery-6.jpg",
+      "/images/Latest_Temple/temple-jewellery-7.jpg",
+      "/images/Latest_Temple/temple-jewellery-8.jpg",
+      "/images/Latest_Temple/temple-jewellery-9.jpg",
+      "/images/Latest_Temple/temple-jewellery-10.jpg",
+      "/images/Latest_Temple/temple-jewellery-11.jpg",
+      "/images/Latest_Temple/temple-jewellery-12.jpg",
+      "/images/Latest_Temple/temple-jewellery-13.jpg",
+      "/images/Latest_Temple/temple-jewellery-14.jpg",
+      "/images/Latest_Temple/temple-jewellery-15.jpg",
+      "/images/Latest_Temple/temple-jewellery-16.jpg",
+      "/images/Latest_Temple/temple-jewellery-17.jpg",
+      "/images/Latest_Temple/temple-jewellery-18.jpg",
+      "/images/Latest_Temple/temple-jewellery-19.jpg",
+      "/images/Latest_Temple/temple-jewellery-20.jpg",
+      "/images/Latest_Temple/temple-jewellery-21.jpg",
+      "/images/Latest_Temple/temple-jewellery-22.jpg",
+      "/images/Latest_Temple/temple-jewellery-23.jpg",
+      "/images/Latest_Temple/temple-jewellery-24.jpg",
+      "/images/Latest_Temple/temple-jewellery-25.jpg",
     ],
-      "Jadau Jewellery": [
-      "/images/jadau/Jadau01.jpeg",
-      "/images/jadau/Jadau02.jpeg",
-      "/images/jadau/Jadau03.jpeg",
-      "/images/jadau/Jadau04.jpeg",
-      "/images/jadau/Jadau05.jpeg", 
-      "/images/jadau/Jadau06.jpeg",
-      "/images/jadau/Jadau07.jpeg",
-      "/images/jadau/Jadau08.jpeg", 
-      "/images/jadau/Jadau09.jpeg",
-      "/images/jadau/Jadau10.jpeg" 
+    // "Jadau Jewellery": [
+    //   "/images/jadau/Jadau01.jpeg",
+    //   "/images/jadau/Jadau02.jpeg",
+    //   "/images/jadau/Jadau03.jpeg",
+    //   "/images/jadau/Jadau04.jpeg",
+    //   "/images/jadau/Jadau05.jpeg",
+    //   "/images/jadau/Jadau06.jpeg",
+    //   "/images/jadau/Jadau07.jpeg",
+    //   "/images/jadau/Jadau08.jpeg",
+    //   "/images/jadau/Jadau09.jpeg",
+    //   "/images/jadau/Jadau10.jpeg" 
+    // ],
+    "Jadau Jewellery": [
+      "/images/Latest_Jadau/Jadau01.JPG",
+      "/images/Latest_Jadau/Jadau02.JPG",
+      "/images/Latest_Jadau/Jadau03.JPG",
+      "/images/Latest_Jadau/Jadau04.JPG",
+      "/images/Latest_Jadau/Jadau05.JPG",
+      "/images/Latest_Jadau/Jadau06.JPG",
+      "/images/Latest_Jadau/Jadau07.JPG",
+      "/images/Latest_Jadau/Jadau08.JPG",
+      "/images/Latest_Jadau/Jadau09.JPG",
+      "/images/Latest_Jadau/Jadau10.JPG", 
+      "/images/Latest_Jadau/Jadau11.JPG", 
+      "/images/Latest_Jadau/Jadau12.JPG", 
+      "/images/Latest_Jadau/Jadau13.JPG", 
+      "/images/Latest_Jadau/Jadau14.JPG", 
+      "/images/Latest_Jadau/Jadau15.JPG", 
+      "/images/Latest_Jadau/Jadau16.JPG", 
+      "/images/Latest_Jadau/Jadau17.JPG", 
+      "/images/Latest_Jadau/Jadau18.JPG", 
+      "/images/Latest_Jadau/Jadau19.JPG", 
+      "/images/Latest_Jadau/Jadau20.JPG", 
+      "/images/Latest_Jadau/Jadau21.JPG", 
+      "/images/Latest_Jadau/Jadau22.JPG", 
+      "/images/Latest_Jadau/Jadau23.JPG", 
+      "/images/Latest_Jadau/Jadau24.JPG", 
+      "/images/Latest_Jadau/Jadau25.JPG", 
+      "/images/Latest_Jadau/Jadau26.JPG", 
+      "/images/Latest_Jadau/Jadau27.JPG", 
+      "/images/Latest_Jadau/Jadau28.JPG", 
+      "/images/Latest_Jadau/Jadau29.JPG", 
+      "/images/Latest_Jadau/Jadau30.JPG", 
+      "/images/Latest_Jadau/Jadau31.JPG", 
+      "/images/Latest_Jadau/Jadau32.JPG", 
+      "/images/Latest_Jadau/Jadau33.JPG", 
+      "/images/Latest_Jadau/Jadau34.JPG", 
+      "/images/Latest_Jadau/Jadau35.JPG", 
+      "/images/Latest_Jadau/Jadau36.JPG", 
+      "/images/Latest_Jadau/Jadau37.JPG", 
+      "/images/Latest_Jadau/Jadau38.JPG", 
+      "/images/Latest_Jadau/Jadau39.JPG", 
+      "/images/Latest_Jadau/Jadau40.JPG", 
+      "/images/Latest_Jadau/Jadau41.JPG", 
+      "/images/Latest_Jadau/Jadau42.JPG", 
+      "/images/Latest_Jadau/Jadau43.JPG", 
+      "/images/Latest_Jadau/Jadau44.JPG", 
+      "/images/Latest_Jadau/Jadau45.JPG", 
+      "/images/Latest_Jadau/Jadau46.JPG", 
+      "/images/Latest_Jadau/Jadau47.JPG", 
+      "/images/Latest_Jadau/Jadau48.JPG", 
+      "/images/Latest_Jadau/Jadau49.JPG", 
+      "/images/Latest_Jadau/Jadau50.JPG", 
     ],
-      "Panchalogam Jewellery": [
-      "/images/panchalogam/Panchalogam01.jpeg",
-      "/images/panchalogam/Panchalogam02.jpeg", 
-      "/images/panchalogam/Panchalogam03.jpeg",
-      "/images/panchalogam/Panchalogam04.jpeg",
-      "/images/panchalogam/Panchalogam05.jpeg", 
-      "/images/panchalogam/Panchalogam06.jpeg",
-      "/images/panchalogam/Panchalogam07.jpeg",
-      "/images/panchalogam/Panchalogam08.jpeg",
-      "/images/panchalogam/Panchalogam09.jpeg",
-      "/images/panchalogam/Panchalogam10.jpeg",
-      "/images/panchalogam/Panchalogam11.jpeg",
-      "/images/panchalogam/Panchalogam12.jpeg",
-      "/images/panchalogam/Panchalogam13.jpeg",
-      "/images/panchalogam/Panchalogam14.jpeg",
-      "/images/panchalogam/Panchalogam15.jpeg",
-      "/images/panchalogam/Panchalogam16.jpeg",
-      "/images/panchalogam/Panchalogam17.jpeg",
-      "/images/panchalogam/Panchalogam18.jpeg",
-      "/images/panchalogam/Panchalogam19.jpeg",
-      "/images/panchalogam/Panchalogam20.jpeg",
-      "/images/panchalogam/Panchalogam21.jpeg",
-      "/images/panchalogam/Panchalogam22.jpeg",
-      "/images/panchalogam/Panchalogam23.jpeg",
-      "/images/panchalogam/Panchalogam24.jpeg",
-      "/images/panchalogam/Panchalogam25.jpeg",
-      "/images/panchalogam/Panchalogam26.jpeg",
-      "/images/panchalogam/Panchalogam27.jpeg",
-      "/images/panchalogam/Panchalogam28.jpeg",
-      "/images/panchalogam/Panchalogam29.jpeg",
-      "/images/panchalogam/Panchalogam30.jpeg",
-      "/images/panchalogam/Panchalogam31.jpeg",
-      "/images/panchalogam/Panchalogam32.jpeg",
-      "/images/panchalogam/Panchalogam33.jpeg",
-      "/images/panchalogam/Panchalogam34.jpeg",
-      "/images/panchalogam/Panchalogam35.jpeg",
-      "/images/panchalogam/Panchalogam36.jpeg",
-      "/images/panchalogam/Panchalogam37.jpeg",
-      "/images/panchalogam/Panchalogam38.jpeg",
-      "/images/panchalogam/Panchalogam39.jpeg",
-      "/images/panchalogam/Panchalogam40.jpeg",
-      "/images/panchalogam/Panchalogam41.jpeg",
-      "/images/panchalogam/Panchalogam42.jpeg",
-      "/images/panchalogam/Panchalogam43.jpeg",
-      "/images/panchalogam/Panchalogam44.jpeg",
-      "/images/panchalogam/Panchalogam45.jpeg",
-      "/images/panchalogam/Panchalogam46.jpeg",
-      "/images/panchalogam/Panchalogam47.jpeg",
-      "/images/panchalogam/Panchalogam48.jpeg",
-      "/images/panchalogam/Panchalogam49.jpeg",
-      "/images/panchalogam/Panchalogam50.jpeg",
-      "/images/panchalogam/Panchalogam51.jpeg",
-      "/images/panchalogam/Panchalogam52.jpeg",
-      "/images/panchalogam/Panchalogam53.jpeg",
-      "/images/panchalogam/Panchalogam54.jpeg",
-      "/images/panchalogam/Panchalogam55.jpeg",
-      "/images/panchalogam/Panchalogam56.jpeg",
-      "/images/panchalogam/Panchalogam57.jpeg",
-      "/images/panchalogam/Panchalogam58.jpeg",
-      "/images/panchalogam/Panchalogam59.jpeg",
-      "/images/panchalogam/Panchalogam60.jpeg",
-      "/images/panchalogam/Panchalogam61.jpeg",
-      "/images/panchalogam/Panchalogam62.jpeg",
-      "/images/panchalogam/Panchalogam63.jpeg",
-      ],
+    // "Panchalogam Jewellery": [
+    //   "/images/panchalogam/Panchalogam01.jpeg",
+    //   "/images/panchalogam/Panchalogam02.jpeg",
+    //   "/images/panchalogam/Panchalogam03.jpeg",
+    //   "/images/panchalogam/Panchalogam04.jpeg",
+    //   "/images/panchalogam/Panchalogam05.jpeg",
+    //   "/images/panchalogam/Panchalogam06.jpeg",
+    //   "/images/panchalogam/Panchalogam07.jpeg",
+    //   "/images/panchalogam/Panchalogam08.jpeg",
+    //   "/images/panchalogam/Panchalogam09.jpeg",
+    //   "/images/panchalogam/Panchalogam10.jpeg",
+    //   "/images/panchalogam/Panchalogam11.jpeg",
+    //   "/images/panchalogam/Panchalogam12.jpeg",
+    //   "/images/panchalogam/Panchalogam13.jpeg",
+    //   "/images/panchalogam/Panchalogam14.jpeg",
+    //   "/images/panchalogam/Panchalogam15.jpeg",
+    //   "/images/panchalogam/Panchalogam16.jpeg",
+    //   "/images/panchalogam/Panchalogam17.jpeg",
+    //   "/images/panchalogam/Panchalogam18.jpeg",
+    //   "/images/panchalogam/Panchalogam19.jpeg",
+    //   "/images/panchalogam/Panchalogam20.jpeg",
+    //   "/images/panchalogam/Panchalogam21.jpeg",
+    //   "/images/panchalogam/Panchalogam22.jpeg",
+    //   "/images/panchalogam/Panchalogam23.jpeg",
+    //   "/images/panchalogam/Panchalogam24.jpeg",
+    //   "/images/panchalogam/Panchalogam25.jpeg",
+    //   "/images/panchalogam/Panchalogam26.jpeg",
+    //   "/images/panchalogam/Panchalogam27.jpeg",
+    //   "/images/panchalogam/Panchalogam28.jpeg",
+    //   "/images/panchalogam/Panchalogam29.jpeg",
+    //   "/images/panchalogam/Panchalogam30.jpeg",
+    //   "/images/panchalogam/Panchalogam31.jpeg",
+    //   "/images/panchalogam/Panchalogam32.jpeg",
+    //   "/images/panchalogam/Panchalogam33.jpeg",
+    //   "/images/panchalogam/Panchalogam34.jpeg",
+    //   "/images/panchalogam/Panchalogam35.jpeg",
+    //   "/images/panchalogam/Panchalogam36.jpeg",
+    //   "/images/panchalogam/Panchalogam37.jpeg",
+    //   "/images/panchalogam/Panchalogam38.jpeg",
+    //   "/images/panchalogam/Panchalogam39.jpeg",
+    //   "/images/panchalogam/Panchalogam40.jpeg",
+    //   "/images/panchalogam/Panchalogam41.jpeg",
+    //   "/images/panchalogam/Panchalogam42.jpeg",
+    //   "/images/panchalogam/Panchalogam43.jpeg",
+    //   "/images/panchalogam/Panchalogam44.jpeg",
+    //   "/images/panchalogam/Panchalogam45.jpeg",
+    //   "/images/panchalogam/Panchalogam46.jpeg",
+    //   "/images/panchalogam/Panchalogam47.jpeg",
+    //   "/images/panchalogam/Panchalogam48.jpeg",
+    //   "/images/panchalogam/Panchalogam49.jpeg",
+    //   "/images/panchalogam/Panchalogam50.jpeg",
+    //   "/images/panchalogam/Panchalogam51.jpeg",
+    //   "/images/panchalogam/Panchalogam52.jpeg",
+    //   "/images/panchalogam/Panchalogam53.jpeg",
+    //   "/images/panchalogam/Panchalogam54.jpeg",
+    //   "/images/panchalogam/Panchalogam55.jpeg",
+    //   "/images/panchalogam/Panchalogam56.jpeg",
+    //   "/images/panchalogam/Panchalogam57.jpeg",
+    //   "/images/panchalogam/Panchalogam58.jpeg",
+    //   "/images/panchalogam/Panchalogam59.jpeg",
+    //   "/images/panchalogam/Panchalogam60.jpeg",
+    //   "/images/panchalogam/Panchalogam61.jpeg",
+    //   "/images/panchalogam/Panchalogam62.jpeg",
+    //   "/images/panchalogam/Panchalogam63.jpeg",
+    // ],
+    "Panchalogam Jewellery": [
+      "/images/set 1/RJ_1.jpeg",
+      "/images/set 1/RJ_2.png",
+      "/images/set 1/RJ_3.jpeg",
+      "/images/set 1/RJ_4.jpeg",
+      "/images/set 1/RJ_5.jpeg",
+      "/images/set 1/RJ_6.jpeg",
+      "/images/set 1/RJ_7.png",
+      "/images/set 1/RJ_8.jpeg",
+      "/images/set 1/RJ_9.png",
+      "/images/set 1/RJ_10.jpeg",
+      "/images/set 1/RJ_11.png",
+      "/images/set 1/RJ_12.png",
+      "/images/set 1/RJ_13.jpeg",
+      "/images/set 1/RJ_14.jpeg",
+      "/images/set 1/RJ_15.png",
+      "/images/set 1/RJ_16.png",
+      "/images/set 1/RJ_17.png",
+      "/images/set 1/RJ_18.png",
+      "/images/set 1/RJ_19.png",
+      "/images/set 1/RJ_20.png",
+      "/images/set 1/RJ_21.png",
+      "/images/set 1/RJ_22.png",
+      "/images/set 1/RJ_23.jpeg",
+      "/images/set 1/RJ_24.jpeg",
+      "/images/set 1/RJ_25.jpeg",
+    ],
     Birthstone: [
       "/images/product/stone/stone1.jpg",
       "/images/product/stone/stone2.jpg",
@@ -270,110 +382,209 @@ const getProductItems = (product: string) => {
       "/images/product/stone/stone10.jpg",
       "/images/product/stone/stone11.jpg",
       "/images/product/stone/stone12.jpg",
-    ]
+    ],
   };
 
-   const normalizedProduct = product?.toLowerCase();
-  
-  if (normalizedProduct === "birthstone") {
-    return items["Birthstone"] || [];
-  }
-  
-  if (normalizedProduct === "gift articles") {
-    return items["Gift Articles"] || [];
-  }
-  
-  if (normalizedProduct === "antique jewellery") {
-    return items["Antique Jewellery"] || [];
-  }
-  
-  if (normalizedProduct === "temple jewellery") {
-    return items["Temple Jewellery"] || [];
-  }
-  if (normalizedProduct === "jadau jewellery") {
-    return items["Jadau Jewellery"] || [];
-  }
-  if (normalizedProduct === "panchalogam jewellery") {
-    return items["Panchalogam Jewellery"] || [];
-  }
-  
+  const normalizedProduct = product?.toLowerCase();
+
+  if (normalizedProduct === "birthstone") return items["Birthstone"] || [];
+  if (normalizedProduct === "gift articles") return items["Gift Articles"] || [];
+  if (normalizedProduct === "antique jewellery") return items["Antique Jewellery"] || [];
+  if (normalizedProduct === "temple jewellery") return items["Temple Jewellery"] || [];
+  if (normalizedProduct === "jadau jewellery") return items["Jadau Jewellery"] || [];
+  if (normalizedProduct === "panchalogam jewellery") return items["Panchalogam Jewellery"] || [];
+
   return items[product] || [];
 };
 
-export default function ProductList() {
+// Detects whether a path is a video asset so it can autoplay on hover.
+const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
 
+// Full-bleed split banner: independent left and right panels, each taking
+// either an image or a video path (auto-detected). No scaling/cropping is
+// applied to images — they render exactly as supplied via object-cover.
+function HeroBanner({
+  leftSrc,
+  rightSrc,
+  label,
+}: {
+  leftSrc: string;
+  rightSrc: string;
+  label: string;
+}) {
+  const renderMedia = (src: string, alt: string) =>
+    isVideo(src) ? (
+      <video
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    ) : (
+      <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
+    );
+
+  return (
+    <div className="relative h-[450px] overflow-hidden bg-[#1B1815]">
+      <div className="grid h-full grid-cols-1 sm:grid-cols-2">
+        <div className="relative h-full overflow-hidden">{renderMedia(leftSrc, `${label} left`)}</div>
+        <div className="relative hidden h-full overflow-hidden sm:block">
+          {renderMedia(rightSrc, `${label} right`)}
+        </div>
+      </div>
+
+      {/* gradient keeps the title legible over any image/video */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/50" />
+
+      <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
+        <span className="h-px w-14 bg-[#C9A227]" />
+        <h1 className="font-cinzel text-3xl capitalize tracking-wide text-white md:text-4xl">
+          {label}
+        </h1>
+        <span className="h-px w-14 bg-[#C9A227]" />
+      </div>
+    </div>
+  );
+}
+
+// One grid tile — image by default, or a muted looping video preview that
+// plays on hover/focus so pieces show their sparkle in motion.
+function ProductTile({
+  src,
+  index,
+  onOpen,
+}: {
+  src: string;
+  index: number;
+  onOpen: () => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const video = isVideo(src);
+
+  const play = () => videoRef.current?.play().catch(() => {});
+  const pause = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      onMouseEnter={play}
+      onMouseLeave={pause}
+      onFocus={play}
+      onBlur={pause}
+      className="
+        group relative aspect-square w-full overflow-hidden rounded-md
+        bg-[#F4EFE6] text-left
+        ring-1 ring-[#D8C89A]/40
+        transition duration-500 ease-out
+        hover:ring-2 hover:ring-[#B8935A]
+        hover:shadow-[0_8px_28px_-8px_rgba(184,147,90,0.55)]
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8935A]
+      "
+    >
+      {video ? (
+        <video
+          ref={videoRef}
+          src={src}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
+        />
+      ) : (
+    <img
+  src={src}
+  alt={`item-${index}`}
+  loading="lazy"
+  className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
+/>
+      )}
+
+      {/* corner frame accents — reads as a jewel case, not a stock grid */}
+      <span className="pointer-events-none absolute left-2 top-2 h-4 w-4 border-l-2 border-t-2 border-[#B8935A]/0 transition duration-500 group-hover:border-[#B8935A]/90" />
+      <span className="pointer-events-none absolute right-2 top-2 h-4 w-4 border-r-2 border-t-2 border-[#B8935A]/0 transition duration-500 group-hover:border-[#B8935A]/90" />
+      <span className="pointer-events-none absolute bottom-2 left-2 h-4 w-4 border-b-2 border-l-2 border-[#B8935A]/0 transition duration-500 group-hover:border-[#B8935A]/90" />
+      <span className="pointer-events-none absolute bottom-2 right-2 h-4 w-4 border-b-2 border-r-2 border-[#B8935A]/0 transition duration-500 group-hover:border-[#B8935A]/90" />
+
+      {video && (
+        <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-[10px] uppercase tracking-wider text-[#F4EFE6] backdrop-blur-sm">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#B8935A] opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#B8935A]" />
+          </span>
+          In motion
+        </span>
+      )}
+    </button>
+  );
+}
+
+export default function ProductList() {
   const { category, product } = useParams();
 
   const location = useLocation();
   const state = location.state as ProductState;
 
-  const parentImage =
-    state?.parentImage ||
-    "/images/bg_1.png";
+  const parentImage = state?.parentImage || "/images/bg_1.png";
+  const leftMedia = state?.leftMedia || parentImage;
+  const rightMedia = state?.rightMedia || parentImage;
+  const sideMedia = state?.sideMedia;
 
-  const [selectedIndex, setSelectedIndex] =
-  useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const productItems =
-    getProductItems(product || "");
+  const productItems = getProductItems(product || "");
 
-    const handleNext = () => {
-  if (selectedIndex === null) return;
-
-  setSelectedIndex(
-    (selectedIndex + 1) % productItems.length
-  );
-};
-
-const handlePrev = () => {
-  if (selectedIndex === null) return;
-
-  setSelectedIndex(
-    (selectedIndex - 1 + productItems.length) %
-      productItems.length
-  );
-};
-
-useEffect(() => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-
+  const handleNext = () => {
     if (selectedIndex === null) return;
-
-    if (e.key === "ArrowRight") handleNext();
-    if (e.key === "ArrowLeft") handlePrev();
-    if (e.key === "Escape")
-      setSelectedIndex(null);
-
+    setSelectedIndex((selectedIndex + 1) % productItems.length);
   };
 
-  window.addEventListener("keydown", handleKeyDown);
+  const handlePrev = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex - 1 + productItems.length) % productItems.length);
+  };
 
-  return () =>
-    window.removeEventListener(
-      "keydown",
-      handleKeyDown
-    );
-}, [selectedIndex]);
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "Escape") setSelectedIndex(null);
+    };
 
-const formattedCategory =
-  category
-    ? category.charAt(0).toUpperCase() +
-      category.slice(1)
-    : "";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex]);
 
-   const isSingleCategory =
-  product === "Silver" ||
-  product === "Gift Articles" ||  product === "Antique Jewellery"||  product === "Temple Jewellery" ||
-   product === "Jadau Jewellery" ||  product === "Panchalogam Jewellery" ||
-  product === "birthstone" ||   product === "Birthstone";
+  const formattedCategory = category ? category.charAt(0).toUpperCase() + category.slice(1) : "";
+
+  const isSingleCategory =
+    product === "Silver" ||
+    product === "Gift Articles" ||
+    product === "Antique Jewellery" ||
+    product === "Temple Jewellery" ||
+    product === "Jadau Jewellery" ||
+    product === "Panchalogam Jewellery" ||
+    product === "birthstone" ||
+    product === "Birthstone";
 
   if (!productItems.length) {
-  return <Navigate to="/" replace />;
-}
+    return <Navigate to="/" replace />;
+  }
+
+  const current = selectedIndex !== null ? productItems[selectedIndex] : null;
 
   return (
     <>
-      {/* Hero */}
+        {/* Hero */}
       <div className="relative h-[450px] overflow-hidden">
 
         <img
@@ -391,30 +602,17 @@ const formattedCategory =
       </div>
 
       {/* Breadcrumb */}
-
-
-<Breadcrumb
-  current={product || ""}
-  parents={
-    isSingleCategory 
-      ? [
-          {
-            name: "Gallery",
-            path: "/gallery"
-          }
-        ]
-      : [
-          {
-            name: "Gallery",
-            path: "/gallery"
-          },
-          {
-            name: formattedCategory,
-            path: `/gallery/${category}`
-          }
-        ]
-  }
-/>
+      <Breadcrumb
+        current={product || ""}
+        parents={
+          isSingleCategory
+            ? [{ name: "Gallery", path: "/gallery" }]
+            : [
+                { name: "Gallery", path: "/gallery" },
+                { name: formattedCategory, path: `/gallery/${category}` },
+              ]
+        }
+      />
 
       {/* Items Grid */}
       <section className="py-16 bg-white mb-50">
@@ -437,167 +635,83 @@ const formattedCategory =
                 <img
                   src={img}
                   alt={`item-${index}`}
-                  className="w-full aspect-square object-cover rounded-lg transition duration-300 group-hover:scale-105"
+                   loading="lazy"
+                  decoding="async"
+                 className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
                 />
-
-              </div>
-
-            ))}
 
           </div>
 
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Modal */}
-   {selectedIndex !== null && (
+      {current !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm">
+          <div className="group relative w-full max-w-4xl px-6">
+            {/* Close */}
+            <div className="group/close absolute right-15 top-6">
+              <button
+                onClick={() => setSelectedIndex(null)}
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/50 text-2xl text-white ring-1 ring-[#B8935A]/60 transition duration-300 hover:bg-[#B8935A]"
+              >
+                ×
+              </button>
+              <span className="absolute right-12 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition duration-300 group-hover/close:opacity-100">
+                Close
+              </span>
+            </div>
 
-  <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            {/* Previous */}
+            <div className="group/prev absolute left-8 top-1/2 -translate-y-1/2">
+              <button
+                onClick={handlePrev}
+                className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/50 text-2xl text-white opacity-0 transition duration-300 hover:bg-[#B8935A] group-hover:opacity-100"
+              >
+                ‹
+              </button>
+              <span className="absolute left-14 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition duration-300 group-hover/prev:opacity-100">
+                Previous
+              </span>
+            </div>
 
-    <div className="relative max-w-4xl w-full px-6 group ">
+            {/* Next */}
+            <div className="group/next absolute right-8 top-1/2 -translate-y-1/2">
+              <button
+                onClick={handleNext}
+                className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/50 text-2xl text-white opacity-0 transition duration-300 hover:bg-[#B8935A] group-hover:opacity-100"
+              >
+                ›
+              </button>
+              <span className="absolute right-14 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition duration-300 group-hover/next:opacity-100">
+                Next
+              </span>
+            </div>
 
-      {/* Close Button */}
-      <div className="absolute top-6 right-15 group/close ">
-
-        <button
-          onClick={() => setSelectedIndex(null)}
-          className="
-            w-10 h-10
-            flex items-center justify-center
-            text-white text-2xl
-            rounded-full
-            bg-black/50
-            hover:bg-red-500
-            transition duration-300
-            cursor-pointer
-          "
-        >
-          ×
-        </button>
-
-        {/* Tooltip */}
-        <span
-          className="
-            absolute right-12 top-1/2
-            -translate-y-1/2
-            px-2 py-1
-            text-xs text-white
-            bg-black
-            rounded
-            opacity-0
-            group-hover/close:opacity-100
-            transition duration-300
-            whitespace-nowrap
-          "
-        >
-          Close
-        </span>
-
-      </div>
-
-
-      {/* Previous Arrow */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 group/prev ">
-
-        <button
-          onClick={handlePrev}
-          className="
-            w-12 h-12
-            flex items-center justify-center
-            text-white text-2xl
-            bg-black/50
-            rounded-full
-            opacity-0
-            group-hover:opacity-100
-            hover:bg-black
-            transition duration-300
-            cursor-pointer
-          "
-        >
-          ‹
-        </button>
-
-        {/* Tooltip */}
-        <span
-          className="
-            absolute left-14 top-1/2
-            -translate-y-1/2
-            px-2 py-1
-            text-xs text-white
-            bg-black
-            rounded
-            opacity-0
-            group-hover/prev:opacity-100
-            transition duration-300
-            whitespace-nowrap
-          "
-        >
-          Previous
-        </span>
-
-      </div>
-
-
-      {/* Next Arrow */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 group/next cursor-pointer">
-
-        <button
-          onClick={handleNext}
-          className="
-            w-12 h-12
-            flex items-center justify-center
-            text-white text-2xl
-            bg-black/50
-            rounded-full
-            opacity-0
-            group-hover:opacity-100
-            hover:bg-black
-            transition duration-300
-            cursor-pointer
-          "
-        >
-          ›
-        </button>
-
-        {/* Tooltip */}
-        <span
-          className="
-            absolute right-14 top-1/2
-            -translate-y-1/2
-            px-2 py-1
-            text-xs text-white
-            bg-black
-            rounded
-            opacity-0
-            group-hover/next:opacity-100
-            transition duration-300
-            whitespace-nowrap
-          "
-        >
-          Next
-        </span>
-
-      </div>
-
-
-      {/* Image */}
-      <img
-        src={productItems[selectedIndex]}
-        alt="preview"
-        className="
-          w-full
-          max-h-[80vh]
-          object-contain
-          rounded-lg
-        "
-      />
-
-    </div>
-
-  </div>
-
-)}
-
+            {/* Media */}
+            <div className="overflow-hidden rounded-lg ring-1 ring-[#B8935A]/50">
+              {isVideo(current) ? (
+                <video
+                  key={current}
+                  src={current}
+                  controls
+                  autoPlay
+                  loop
+                  className="max-h-[80vh] w-full object-contain bg-black"
+                />
+              ) : (
+                <img
+                  src={current}
+                  alt="preview"
+                  className="max-h-[80vh] w-full object-contain"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -92,7 +92,7 @@ export default function Drawer({
             <p>044 42102844</p>
 
             <p>
-              radhajwellery@yahoo.com
+              radhajewellers@yahoo.com
             </p>
 
           </div>

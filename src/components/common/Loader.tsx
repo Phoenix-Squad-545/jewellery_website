@@ -52,7 +52,7 @@ export default function Loader() {
   <div className="absolute inset-[22px] flex items-center justify-center rounded-full bg-white shadow-xl p-2">
     <img
       src={Logo}
-      alt="Radha Gold Jewellery"
+      alt="Radha Gold Jewellers"
       className="w-full h-full object-contain rounded-full"
     />
   </div>
@@ -60,8 +60,8 @@ export default function Loader() {
 
         {/* Brand */}
         <div className="flex flex-col items-center gap-3">
-          <span className="font-cinzel text-2xl md:text-4xl tracking-[0.25em] text-gold uppercase animate-pulse">
-            Radha Gold Jewellery
+          <span className="font-cinzel text-1xl md:text-4xl tracking-[0.25em] text-gold uppercase animate-pulse">
+            Radha Gold Jewellers
           </span>
           <span className="font-cormorant italic text-base md:text-lg tracking-wider text-white/50">
             Since 1967 · Chennai

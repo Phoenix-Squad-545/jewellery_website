@@ -1,4 +1,5 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Logo from "../../assets/logo.jpg"; // Update the path and extension as needed
 
 export default function Footer() {
@@ -20,17 +21,17 @@ export default function Footer() {
   <div className="flex items-center gap-3">
     <img
       src={Logo}
-      alt="Radha Gold Jewellery Logo"
+      alt="Radha Gold Jewellers Logo"
       className="w-10 h-10 object-contain rounded-full"
     />
 
     <h3 className="font-cinzel text-lg tracking-widest">
-      Radha Gold Jewellery
+      Radha Gold Jewellers
     </h3>
   </div>
 
   <p className="text-white/50 text-sm mt-6 leading-relaxed">
-    Founded in 1967, Radha Gold Jewellery specializes in premium silver
+    Founded in 1967, Radha Gold Jewellers specializes in premium silver
     craftsmanship and heritage designs.
   </p>
 </div>
@@ -91,15 +92,51 @@ export default function Footer() {
 
             </h4>
 
-            <ul className="space-y-3 text-sm text-white/50">
+           <ul className="space-y-3 text-sm text-white/50">
+  <li>
+    <a
+      href="https://www.facebook.com/share/1EdZnwVkxe/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-gold transition-colors"
+    >
+      Facebook
+    </a>
+  </li>
 
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>+91 44 2462 0000</li>
-              <li>radhajwellery@yahoo.com</li>
+  <li>
+    <a
+      href="https://www.instagram.com/radhagoldjewellers2874?utm_source=qr&igsh=MWl3NWg4ZDVteXd3eg=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-gold transition-colors"
+    >
+      Instagram
+    </a>
+  </li>
 
-            </ul>
+  <li>
+  <a
+    href="https://wa.me/919444475473"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 hover:text-gold transition-colors"
+  >
 
+    {/* <FaWhatsapp size={16} /> */}
+    WhatsApp
+  </a>
+</li>
+
+  <li>
+    <a
+      href="mailto:radhajewellers@yahoo.com"
+      className="hover:text-gold transition-colors"
+    >
+      radhajewellers@yahoo.com
+    </a>
+  </li>
+</ul>
           </div>
 
           {/* Working Hours */}
@@ -112,7 +149,7 @@ export default function Footer() {
 
             <p className="text-sm text-white/60 leading-relaxed">
               Monday to Saturday <br />
-              10:00 AM to 8:30 PM
+              11:00 AM to 8:30 PM
             </p>
 
             <span className="text-xs text-white/40 block mt-2">
@@ -129,7 +166,7 @@ export default function Footer() {
 
           <p className="text-xs text-white/30">
 
-            © {new Date().getFullYear()} Radha Gold Jewellery.
+            © {new Date().getFullYear()} Radha Gold Jewellers.
             All rights reserved.
 
           </p>
@@ -154,6 +191,16 @@ export default function Footer() {
           >
             <Instagram size={16} />
           </a>
+
+          <a
+     href="https://wa.me/919444475473?text=Hi%20there!%20I%20would%20like%20to%20know%20more%20about%20your%20jewellery%20collections.%20Please%20feel%20free%20to%20assist%20me."
+     target="_blank"
+    rel="noopener noreferrer"
+    className="w-8 h-8 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+    aria-label="WhatsApp"
+  >
+ <FaWhatsapp size={16} />
+  </a>
         </div>
         </div>
 

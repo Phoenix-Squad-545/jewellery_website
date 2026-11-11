@@ -48,7 +48,7 @@ export default function Navbar() {
   <Link to="/" className="shrink-0">
     <img
       src={logo}
-      alt="Radha Gold Jewellery Logo"
+      alt="Radha Gold Jewellers Logo"
       className="w-10 h-10 object-contain"
     />
   </Link>
@@ -58,12 +58,12 @@ export default function Navbar() {
       to="/"
       className="font-cinzel text-lg tracking-widest"
     >
-      Radha Gold Jewellery
+      Radha Gold Jewellers
     </Link>
 
     <div className="text-[10px] text-white/70 mt-1 hidden md:block">
       <p>044 42102844</p>
-      <p>radhajewellery@yahoo.com</p>
+      <p>radhajewellers@yahoo.com</p>
     </div>
   </div>
 </div>
@@ -80,7 +80,7 @@ export default function Navbar() {
               uppercase
             "
           >
-            Radha Gold Jewellery
+            Radha Gold Jewellers
           </h1>
 
         </div> */}
