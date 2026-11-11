@@ -29,21 +29,21 @@ const galleryCategories = [
   // },
   {
     label: "Temple Jewellery",
-    image: "/images/product/temple/temple-jewellery-1.jpg",
+    image: "/images/Latest_Temple/temple-jewellery-1.jpg",
     slug: "temple-jewellery",
     type: "single", // important
     products: ["Temple Jewellery"]
   },
   {
     label: "Jadau Jewellery",
-    image: "/images/jadau/Jadau01.jpeg",
+    image: "/images/Latest_Jadau/Jadau01.JPG",
     slug: "jadau-jewellery",
     type: "single", // important
     products: ["Jadau Jewellery"]
   },
   {
     label: "Panchalogam Jewellery",
-    image: "/images/panchalogam/Panchalogam01.jpeg",
+    image: "/images/set 1/RJ_1.jpeg",
     slug: "panchalogam-jewellery",
     type: "single", // important
     products: ["Panchalogam Jewellery"]

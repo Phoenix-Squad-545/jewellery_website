@@ -9,12 +9,12 @@
 //   "/images/gallery/gallery_item_8.jpg",
 // ];
 export const galleryImages = [
-  "/images/Traditional/Traditional01.jpg",
-  "/images/Traditional/Traditional02.webp",
-  "/images/Traditional/Traditional03.webp",
-  "/images/Traditional/Traditional04.jpg",
-  "/images/Traditional/Traditional05.jpg",
-  "/images/Traditional/Traditional06.jpg",
-  "/images/Traditional/Traditional07.jpg",
-  "/images/Traditional/Traditional08.jpg",
+  "/images/Latest_Jadau/Jadau01.JPG",
+  "/images/Latest_Jadau/Jadau02.JPG",
+  "/images/Latest_Jadau/Jadau03.JPG",
+  "/images/Latest_Temple/temple-jewellery-1.jpg",
+  "/images/Latest_Temple/temple-jewellery-2.jpg",
+  "/images/set 1/RJ_1.jpeg",
+  "/images/set 1/RJ_15.png",
+  "/images/set 1/RJ_13.jpeg",
 ];

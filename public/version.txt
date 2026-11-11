@@ -1,0 +1,18 @@
+Version: 1.0.1
+Date: 11-11-2026
+
+Changes:
+- Fixed JPG image loading issue.
+- Improved product image loading performance.
+- Optimized modal image opening.
+- Added faster next/previous image navigation.
+- Improved image thumbnail loading.
+
+
+/------------------------------------------------------------------------/
+
+Version: 1.0.2
+Date: 11-11-2026
+
+Changes:
+- Added new images
