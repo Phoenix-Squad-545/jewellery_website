@@ -68,7 +68,7 @@ export default function Contact() {
             </h3>
 
             <p>
-              radhajwellery@yahoo.com
+              radhajewellers@yahoo.com
             </p>
 
           </div>

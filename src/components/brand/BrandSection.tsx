@@ -162,7 +162,7 @@ const handlePrev = () => {
             {/* Short Content (Home Page) */}
 
             <p className="text-sm leading-relaxed text-gray-600 mb-6">
-  <strong>Radha Gold Jewellery</strong> was established in <strong>1967</strong> by
+  <strong>Radha Gold Jewellers</strong> was established in <strong>1967</strong> by
   <strong> Mr. B. S. Balavenkataraman</strong>, the pioneer who introduced
   <strong> Original Temple Jewellery</strong>. For more than five decades, we
   have been preserving the rich heritage of traditional South Indian jewellery,
@@ -199,7 +199,7 @@ const handlePrev = () => {
       <strong> BIS Hallmark Certified Jewellery Showrooms</strong> in this part
       of Chennai, we are committed to maintaining the highest standards of
       purity, quality, and customer satisfaction. Our legacy continues to blend
-      tradition with innovation, making Radha Gold Jewellery a trusted name
+      tradition with innovation, making Radha Gold Jewellers a trusted name
       since 1967.
     </p>
   </>
