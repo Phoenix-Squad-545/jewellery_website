@@ -17,5 +17,7 @@ export interface Category {
 export const categories: Category[] = [
   { key: "Temple Jewellery", label: "Temple Jewellery", image: "/images/Traditional/Traditional03.webp", products: ["temple-jewellery"]},
   { key: "Jadau Jewellery", label: "Jadau Jewellery", image: "/images/Latest_Jadau/Jadau01.JPG", products: ["jadau-jewellery"] },
-  { key: "Panchalogam Jewellery", label: "Panchalogam Jewellery", image: "/images/set 1/RJ_1.jpeg", products: ["panchalogam-jewellery"] }
+  { key: "Panchalogam Jewellery", label: "Panchalogam Jewellery", image: "/images/set 1/RJ_1.jpeg", products: ["panchalogam-jewellery"] },
+  { key: "Antique Jewellery", label: "Antique Jewellery",image: "/images/set 2/RJ_001.jpg", products: ["antique-jewellery"] },
+  { key: "Divine Jewellery", label: "Divine Jewellery", image: "/images/set 1/RJ_20.png", products: ["divine-jewellery"] },
 ];
