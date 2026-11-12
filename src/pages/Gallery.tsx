@@ -51,11 +51,25 @@ const galleryCategories = [
 
   // {
   //   label: "Gift Articles",
-  //   image: "/images/product/gift/gift10.jpg",
+  //   image: "/images/set 1/RJ_15.png",
   //   slug: "gift-articles",
   //   type: "single",
   //   products: ["Gift Articles"]
   // },
+  {
+    label: "Antique Jewellery",
+    image: "/images/set 2/RJ_001.jpg",
+    slug: "antique-jewellery",
+    type: "single",
+    products: ["Antique Jewellery"]
+  },
+  {
+    label: "Divine Jewellery",
+    image: "/images/set 1/RJ_20.png",
+    slug: "divine-jewellery",
+    type: "single",
+    products: ["Divine Jewellery"]
+  },
   // {
   //   label: "Antique Jewellery",
   //   image: "/images/product/antique/antique-1.webp",
@@ -126,10 +140,10 @@ const handleViewCategory = (category: any) => {
           mx-auto
           px-6
         ">
-
+ {/* md:grid-cols-4 */}
           <div className="
-            grid
-            md:grid-cols-4
+            grid grid-cols-2
+            md:grid-cols-3
             gap-6
           ">
 

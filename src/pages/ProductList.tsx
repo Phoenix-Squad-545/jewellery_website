@@ -152,15 +152,45 @@ const getProductItems = (product: string) => {
       "/images/product/gift/gift-15.jpg",
       "/images/product/gift/gift-16.jpg",
     ],
+    // "Antique Jewellery": [
+    //   "/images/product/antique/antique-1.webp",
+    //   "/images/product/antique/antique-2.jpg",
+    //   "/images/product/antique/antique-3.jpg",
+    //   "/images/product/antique/antique-4.jpg",
+    //   "/images/product/antique/antique-5.avif",
+    //   "/images/product/antique/antique-6.webp",
+    //   "/images/product/antique/antique-7.webp",
+    //   "/images/product/antique/antique-8.jpg",
+    // ],
     "Antique Jewellery": [
-      "/images/product/antique/antique-1.webp",
-      "/images/product/antique/antique-2.jpg",
-      "/images/product/antique/antique-3.jpg",
-      "/images/product/antique/antique-4.jpg",
-      "/images/product/antique/antique-5.avif",
-      "/images/product/antique/antique-6.webp",
-      "/images/product/antique/antique-7.webp",
-      "/images/product/antique/antique-8.jpg",
+      "/images/set 2/RJ_001.jpg",
+      "/images/set 2/RJ_002.jpg",
+      "/images/set 2/RJ_003.jpg",
+      "/images/set 2/RJ_004.jpg",
+      "/images/set 2/RJ_005.jpg",
+      "/images/set 2/RJ_006.jpg",
+      "/images/set 2/RJ_007.jpg",
+      "/images/set 2/RJ_008.jpg",
+      "/images/set 2/RJ_009.jpg",
+      "/images/set 2/RJ_010.jpg",
+      "/images/set 2/RJ_011.jpg",
+      "/images/set 2/RJ_012.jpg",
+      "/images/set 2/RJ_013.jpg",
+      "/images/set 2/RJ_014.jpg",
+      "/images/set 2/RJ_014a.jpg",
+      "/images/set 2/RJ_015.jpg",
+      "/images/set 2/RJ_016.jpg",
+      "/images/set 2/RJ-017.jpg",
+    ],
+    "Divine Jewellery": [
+      "/images/set 3/001.jpg",
+      "/images/set 3/002.jpg",
+      "/images/set 3/003.jpg",
+      "/images/set 3/004.jpg",
+      "/images/set 3/005.jpg",
+      "/images/set 3/006.jpg",
+      "/images/set 3/007.jpg",
+      "/images/set 3/008.jpg",
     ],
     // "Temple Jewellery": [
     //   "/images/Traditional/Traditional01.jpg",
@@ -391,6 +421,7 @@ const getProductItems = (product: string) => {
   if (normalizedProduct === "gift articles") return items["Gift Articles"] || [];
   if (normalizedProduct === "antique jewellery") return items["Antique Jewellery"] || [];
   if (normalizedProduct === "temple jewellery") return items["Temple Jewellery"] || [];
+  if (normalizedProduct === "divine jewellery") return items["Divine Jewellery"] || [];
   if (normalizedProduct === "jadau jewellery") return items["Jadau Jewellery"] || [];
   if (normalizedProduct === "panchalogam jewellery") return items["Panchalogam Jewellery"] || [];
 
@@ -571,6 +602,7 @@ export default function ProductList() {
     product === "Gift Articles" ||
     product === "Antique Jewellery" ||
     product === "Temple Jewellery" ||
+    product === "Divine Jewellery" ||
     product === "Jadau Jewellery" ||
     product === "Panchalogam Jewellery" ||
     product === "birthstone" ||
